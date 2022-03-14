@@ -1,12 +1,14 @@
 import React from 'react'
 import Task from './Task'
 
-const TaskList = ({tasks, onDelete}) => {
+const TaskList = ({tasks, onComplete, onDelete}) => {
   return (
     <>
-      {tasks.map((task) => (
-        <Task task = {task} onDelete={onDelete}/>
-      ))}
+      {
+        tasks.map((task) => (
+          <Task task={task} onComplete={onComplete} onDelete={onDelete}/>
+        ))
+      }
     </>
   )
 }

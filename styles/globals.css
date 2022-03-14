@@ -14,3 +14,7 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.completed{
+  background-color: red;
+}

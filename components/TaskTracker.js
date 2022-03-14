@@ -1,7 +1,7 @@
 import React from 'react'
 import Header from './Header'
-import Button from './Button'
 import TaskList from './TaskList'
+import AddForm from './AddForm'
 import { useState } from 'react'
 
 const TaskTracker = () => {
@@ -22,30 +22,32 @@ const TaskTracker = () => {
       id: 3,
       task: 'task',
       date:'10:11 10.4.2022',
-      completed: false
+      completed: true
     }
   ])
 
-  const[taskInput, setTaskInput] = useState('');
+  const addTask = (task) => {
+    console.log(task)
+    setTasks([...tasks, task])
+  }
+
+  //change complete status
+  const completeTask = (id) => {
+    setTasks(tasks.map((task) => task.id === id
+    ? {...task, completed: !task.completed} : task
+    ))
+  }
 
   //delete task
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id))
   }
 
-  const addTask = () => {
-    
-    const newTask = {id: 1, task: taskInput, date: "2022", completed: false}
-    console.log(newTask)
-    setTasks(...tasks, newTask)
-  }
-
   return (
     <>
         <Header/>
-        <input id='taskInput' type="text" placeholder='Zadejte úkol' onChange={(e) => {setTaskInput(e.target.value)}}/>
-        <Button text='Uložit' type='submit' onClick={addTask}/>
-        <TaskList tasks={tasks} onDelete={deleteTask}/>
+        <AddForm onAddTask={addTask}/>
+        <TaskList tasks={tasks} onComplete = {completeTask} onDelete={deleteTask}/>
     </>
   )
 }
