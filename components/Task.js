@@ -8,7 +8,7 @@ const Task = ({task, onComplete, onDelete}) => {
     <div key={task.id} style={{maxWidth: "500px"}} className={`border shadow-sm mt-2 mx-auto rounded w-75 ${task.completed ? 'completed' : ''}`}>
       <Row >
         <Col>
-          <h4 className='mb-0'>{task.task}</h4>
+          <h4 className='text-truncate mb-0'>{task.task}</h4>
           <p className='mt-0 mb-2'>{task.date}</p>
         </Col>
         <Col className='mt-2 mr-1' sm='auto'>

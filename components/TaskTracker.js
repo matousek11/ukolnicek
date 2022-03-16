@@ -34,8 +34,7 @@ const TaskTracker = () => {
         <AddForm className='mb-5' onAddTask={addTask}/>
         <TaskList className='text-align-center' tasks={tasks} onComplete = {completeTask} onDelete={deleteTask}/>
       </Container>
-      <div className='absoulute-bottom mt-5' style={{backgroundColor: 'gray', height: 200}}>
-      </div>
+      
     </>
   )
 }
