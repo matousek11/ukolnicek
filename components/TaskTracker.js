@@ -3,28 +3,12 @@ import Header from './Header'
 import TaskList from './TaskList'
 import AddForm from './AddForm'
 import { useState } from 'react'
+import { Container } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 const TaskTracker = () => {
-  const[tasks, setTasks] = useState([
-    {
-      id: 1,
-      task: 'task',
-      date:'10:11 10.4.2022',
-      completed: false
-    },
-    {
-      id: 2,
-      task: 'task',
-      date:'10:11 10.4.2022',
-      completed: false
-    },
-    {
-      id: 3,
-      task: 'task',
-      date:'10:11 10.4.2022',
-      completed: true
-    }
-  ])
+  const[tasks, setTasks] = useState([])
 
   const addTask = (task) => {
     console.log(task)
@@ -45,9 +29,13 @@ const TaskTracker = () => {
 
   return (
     <>
+      <Container fluid className='mx-auto'>
         <Header/>
-        <AddForm onAddTask={addTask}/>
-        <TaskList tasks={tasks} onComplete = {completeTask} onDelete={deleteTask}/>
+        <AddForm className='mb-5' onAddTask={addTask}/>
+        <TaskList className='text-align-center' tasks={tasks} onComplete = {completeTask} onDelete={deleteTask}/>
+      </Container>
+      <div className='absoulute-bottom mt-5' style={{backgroundColor: 'gray', height: 200}}>
+      </div>
     </>
   )
 }

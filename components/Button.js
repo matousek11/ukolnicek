@@ -1,8 +1,10 @@
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-const Button = ({text, type, onClick}) => {
+
+const Button = ({text, type, style, onClick}) => {
   return (
-    <button type={type} onClick={onClick}>{text}</button>
+    <button className={style} type={type} onClick={onClick}>{text}</button>
   )
 }
 

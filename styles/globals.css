@@ -16,5 +16,8 @@ a {
 }
 
 .completed{
-  background-color: red;
+  background-color: #e8e8e8;
+  transition-duration: .5s;
+  color: #4a4a4a;
+  text-decoration: line-through;
 }

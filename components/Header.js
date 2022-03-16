@@ -1,9 +1,10 @@
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Header = () => {
   return (
     <header>
-            <h1>Úkolníček</h1>
+            <h1 className='text-center'>Úkolníček</h1>
     </header>
   )
 }
