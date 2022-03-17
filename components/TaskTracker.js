@@ -29,7 +29,7 @@ const TaskTracker = () => {
 
   return (
     <>
-      <Container fluid className='mx-auto'>
+      <Container fluid='sm' className='mx-auto'>
         <Header/>
         <AddForm className='mb-5' onAddTask={addTask}/>
         <TaskList className='text-align-center' tasks={tasks} onComplete = {completeTask} onDelete={deleteTask}/>

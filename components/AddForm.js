@@ -1,24 +1,27 @@
 import React from 'react'
-//import Button from './Button';
 import { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button, Form, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const id = 0;
-
 
 const AddForm = ({onAddTask}) => {
     const[taskInput, setTaskInput] = useState('');
     const date = new Date();
     
-
-    const getDateAndTime = () => {
-        return `${date.getHours()}:${date.getMinutes()} ${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`
+    const getTime = () => {
+        return `${date.getHours()}:${date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}`
     }
 
+    const getDateAndTime = () => {
+        return `${date.getDate()}.${date.getMonth()}.${date.getFullYear()} ${getTime()}`
+    }
+
+    //add new task
     const onSubmit = (e) => {
         e.preventDefault()
 
+        //error message
         if(!taskInput)
         {
             return alert("Zadejte úkol")
@@ -26,11 +29,15 @@ const AddForm = ({onAddTask}) => {
         
         onAddTask({id: id, task: taskInput, date: `${getDateAndTime()}`, completed: false})
         setTaskInput('');
+        Array.from(document.querySelectorAll("input")).forEach(
+            input => (input.value = "")
+          );
+
         id = id + 1;
     }
 
     return (
-        <Form style={{maxWidth: "500px"}} className='mx-auto w-75' onSubmit={(e) => { onSubmit(e)}}>
+        <Form style={{maxWidth: "500px"}} className='mx-auto w-sm-75' onSubmit={(e) => { onSubmit(e)}}>
             <Row>
                 <Col>
                     <Form.Group controlId='formTask'>

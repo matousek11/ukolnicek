@@ -19,5 +19,22 @@ a {
   background-color: #e8e8e8;
   transition-duration: .5s;
   color: #4a4a4a;
-  text-decoration: line-through;
+}
+
+.strikethrough{
+  display: initial;
+  position: relative;
+  color:black;
+  
+  width: 120%;
+  margin: 0 auto;
+  opacity: 1;
+}
+.nostrikethrough{
+  display: none;
+}
+
+.wrap{
+  max-width:150px;
+  word-wrap:break-word;
 }
