@@ -11,7 +11,7 @@ const Task = ({task, onComplete, onDelete}) => {
           <h4 className='mb-0 wrap'>{task.task}</h4>
           <p className='mt-0 mb-2 text-muted'>{task.date}</p>
         </Col>
-        <Col className='mt-3 d-flex align-items-start justify-content-end'>
+        <Col className='mt-3 mb-2 d-flex align-items-start justify-content-end'>
           <ButtonGroup className='me-2'>
             <Button className variant='outline-primary' size='sm' type='button' onClick={() => onComplete(task.id)}>Dokončeno</Button>
           </ButtonGroup>

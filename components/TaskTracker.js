@@ -12,7 +12,6 @@ const TaskTracker = () => {
 
   //add new task
   const addTask = (task) => {
-    console.log(task)
     setTasks([...tasks, task])
   }
 
@@ -29,13 +28,11 @@ const TaskTracker = () => {
   }
 
   return (
-    <>
-      <Container fluid='sm' className='mx-auto'>
-        <Header/>
-        <AddForm className='mb-5' onAddTask={addTask}/>
-        <TaskList className='text-align-center' tasks={tasks} onComplete = {completeTask} onDelete={deleteTask}/>
-      </Container>
-    </>
+    <Container className='mx-auto'>
+      <Header/>
+      <AddForm className='mb-5' onAddTask={addTask}/>
+      <TaskList className='text-align-center' tasks={tasks} onComplete = {completeTask} onDelete={deleteTask}/>
+    </Container>
   )
 }
 

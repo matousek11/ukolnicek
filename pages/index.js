@@ -7,7 +7,7 @@ export default function Home() {
       <Head>
         <title>Úkolníček</title>
         <meta name="description" content="Zazmenava ukoly" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.ico" />
       </Head>
       <TaskTracker/>
     </>
