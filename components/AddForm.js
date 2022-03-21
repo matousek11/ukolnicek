@@ -4,21 +4,22 @@ import { Button, Form, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const id = 0;
+const date = new Date();
 
 const AddForm = ({onAddTask}) => {
     const[taskInput, setTaskInput] = useState('');
-    const date = new Date();
     
     const getTime = () => {
         return `${date.getHours()}:${date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}`
     }
 
     const getDateAndTime = () => {
-        return `${date.getDate()}.${date.getMonth()}.${date.getFullYear()} ${getTime()}`
+        return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()} ${getTime()}`
     }
 
-    //add new task
+    //verifies user input
     const onSubmit = (e) => {
+        //prevents to submit data to server
         e.preventDefault()
 
         //error message
@@ -29,10 +30,10 @@ const AddForm = ({onAddTask}) => {
         
         onAddTask({id: id, task: taskInput, date: `${getDateAndTime()}`, completed: false})
         setTaskInput('');
+        //delete all inputs
         Array.from(document.querySelectorAll("input")).forEach(
             input => (input.value = "")
           );
-
         id = id + 1;
     }
 

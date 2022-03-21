@@ -10,12 +10,13 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const TaskTracker = () => {
   const[tasks, setTasks] = useState([])
 
+  //add new task
   const addTask = (task) => {
     console.log(task)
     setTasks([...tasks, task])
   }
 
-  //change complete status
+  //change status of task
   const completeTask = (id) => {
     setTasks(tasks.map((task) => task.id === id
     ? {...task, completed: !task.completed} : task
@@ -34,7 +35,6 @@ const TaskTracker = () => {
         <AddForm className='mb-5' onAddTask={addTask}/>
         <TaskList className='text-align-center' tasks={tasks} onComplete = {completeTask} onDelete={deleteTask}/>
       </Container>
-      
     </>
   )
 }

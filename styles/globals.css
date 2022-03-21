@@ -15,6 +15,11 @@ a {
   box-sizing: border-box;
 }
 
+.padding{
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+}
+
 .completed{
   background-color: #e8e8e8;
   transition-duration: .5s;
@@ -22,14 +27,16 @@ a {
 }
 
 .strikethrough{
+  z-index: 5 !important;
   display: initial;
-  position: relative;
+  position: absolute;
   color:black;
-  
+  top: 50%;
   width: 120%;
   margin: 0 auto;
   opacity: 1;
 }
+
 .nostrikethrough{
   display: none;
 }
