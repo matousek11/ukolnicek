@@ -4,7 +4,7 @@ import { Row, Col, Button, ButtonGroup } from 'react-bootstrap'
 const Task = ({task, onComplete, onDelete}) => {
   return (
     <div className={`w-sm-75 border rounded shadow-sm mx-auto mt-2 padding ${task.completed ? 'completed' : ''} `} style={{maxWidth: "500px"}}>
-      <Row style={{position: "relative"}}>
+      <Row className={`position-relative`}>
         <hr className={`strikethrough ${task.completed ? 'strikethrough' : 'nostrikethrough'}`}/>
         <Col>
           <h4 className='mb-0 wrap'>{task.task}</h4>
