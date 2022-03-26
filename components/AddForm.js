@@ -38,16 +38,12 @@ const AddForm = ({onAddTask}) => {
 
     return (
         <Form style={{maxWidth: "500px"}} className='mx-auto w-sm-75' onSubmit={(e) => { onSubmit(e)}}>
-            <Row>
-                <Col>
-                    <Form.Group controlId='formTask'>
-                        <Form.Control placeholder='Zadejte úkol' type='text' value={taskInput} onChange={(e) => {setTaskInput(e.target.value)}}></Form.Control>
-                    </Form.Group>
-                </Col>
-                <Col>
-                    <Button variant='primary' type='submit'>Uložit</Button>
-                </Col>
-            </Row>
+            <div className='d-inline-flex'>
+                <Form.Group controlId='formTask'>
+                    <Form.Control placeholder='Zadejte úkol' type='text' value={taskInput} onChange={(e) => {setTaskInput(e.target.value)}}></Form.Control>
+                </Form.Group>
+                <Button variant='primary' className="margin" type='submit'>Uložit</Button>
+            </div>
         </Form>
     )
 }
