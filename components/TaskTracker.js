@@ -4,8 +4,6 @@ import TaskList from './TaskList'
 import AddForm from './AddForm'
 import { useState } from 'react'
 import { Container } from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
-
 
 const TaskTracker = () => {
   const[tasks, setTasks] = useState([])

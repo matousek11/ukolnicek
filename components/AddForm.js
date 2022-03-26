@@ -1,40 +1,31 @@
 import React from 'react'
 import { useState } from 'react';
 import { Button, Form, Row, Col } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css'
+import moment from 'moment'
 
-const id = 0;
-const date = new Date();
+const id = 0
 
 const AddForm = ({onAddTask}) => {
     const[taskInput, setTaskInput] = useState('');
     
-    const getTime = () => {
-        return `${date.getHours()}:${date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}`
-    }
-
-    const getDateAndTime = () => {
-        return `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()} ${getTime()}`
-    }
-
     //verifies user input
     const onSubmit = (e) => {
         //prevents to submit data to server
         e.preventDefault()
+        //load actual time and date
+        let date = moment().format('DD.MM.YYYY HH:mm')
 
         //error message
         if(!taskInput)
         {
-            return alert("Zadejte úkol")
+            alert("Zadejte úkol")
+            return
         }
-        
-        onAddTask({id: id, task: taskInput, date: `${getDateAndTime()}`, completed: false})
-        setTaskInput('');
+            
+        onAddTask({id: id, task: taskInput, date: date, completed: false})
         //delete all inputs
-        Array.from(document.querySelectorAll("input")).forEach(
-            input => (input.value = "")
-          );
-        id = id + 1;
+        setTaskInput('')
+        id = id + 1
     }
 
     return (
@@ -42,7 +33,7 @@ const AddForm = ({onAddTask}) => {
             <Row>
                 <Col>
                     <Form.Group controlId='formTask'>
-                        <Form.Control placeholder='Zadejte úkol' type='text' onChange={(e) => {setTaskInput(e.target.value)}}></Form.Control>
+                        <Form.Control placeholder='Zadejte úkol' type='text' value={taskInput} onChange={(e) => {setTaskInput(e.target.value)}}></Form.Control>
                     </Form.Group>
                 </Col>
                 <Col>
@@ -50,7 +41,7 @@ const AddForm = ({onAddTask}) => {
                 </Col>
             </Row>
         </Form>
-  )
+    )
 }
 
 export default AddForm

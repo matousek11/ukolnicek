@@ -6,7 +6,7 @@ const TaskList = ({tasks, onComplete, onDelete}) => {
     <>
       {
         tasks.map((task) => (
-          <Task key={task.id} task={task} onComplete={onComplete} onDelete={onDelete}/>
+          <Task task={task} onComplete={onComplete} onDelete={onDelete}/>
         ))
       }
     </>

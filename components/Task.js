@@ -1,6 +1,5 @@
 import React from 'react'
 import { Row, Col, Button, ButtonGroup } from 'react-bootstrap'
-import 'bootstrap/dist/css/bootstrap.min.css'
 
 const Task = ({task, onComplete, onDelete}) => {
   return (
