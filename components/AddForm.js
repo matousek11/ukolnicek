@@ -3,11 +3,18 @@ import { useState } from 'react';
 import { Button, Form, Row, Col } from 'react-bootstrap';
 import moment from 'moment'
 
-const id = 0
+
 
 const AddForm = ({onAddTask}) => {
     const[taskInput, setTaskInput] = useState('');
+    const[id, setId] = useState(0);
     
+    const incrementId = () => {
+        setId(prevId => {
+        return prevId + 1
+        })
+    }
+
     //verifies user input
     const onSubmit = (e) => {
         //prevents to submit data to server
@@ -23,9 +30,10 @@ const AddForm = ({onAddTask}) => {
         }
             
         onAddTask({id: id, task: taskInput, date: date, completed: false})
+        incrementId()
+        console.log(id)
         //delete all inputs
         setTaskInput('')
-        id = id + 1
     }
 
     return (
