@@ -7,23 +7,20 @@ import { Container } from 'react-bootstrap'
 
 const TaskTracker = () => {
   const[tasks, setTasks] = useState([])
-  
 
   //add new task
   const addTask = (task) => {
-    setTasks([...tasks, task])
+    setTasks(tasks => [...tasks, task])
   }
 
   //change status of task
   const completeTask = (id) => {
-    setTasks(tasks.map((task) => task.id === id
-    ? {...task, completed: !task.completed} : task
-    ))
+    setTasks(lastTasks => lastTasks.map((task) => task.id === id ? {...task, completed: !task.completed} : task))
   }
 
   //delete task
   const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id))
+    setTasks(lastTasks => lastTasks.filter((task) => task.id !== id))
   }
 
   return (

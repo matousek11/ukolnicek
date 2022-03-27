@@ -36,7 +36,7 @@ const AddForm = ({onAddTask}) => {
     }
 
     return (
-        <Form className='mx-auto w-sm-75 elementMaxWidth' onSubmit={(e) => { onSubmit(e)}}>
+        <Form className='mx-auto w-sm-75 elementMaxWidth' onSubmit={(e) => {onSubmit(e)}}>
             <div className='d-inline-flex'>
                 <Form.Group controlId='formTask'>
                     <Form.Control placeholder='Zadejte úkol' type='text' value={taskInput} onChange={(e) => {setTaskInput(e.target.value)}}></Form.Control>

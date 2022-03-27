@@ -19,13 +19,13 @@ a {
   margin-left: 10px !important;
 }
 
-.elementMaxWidth{
-  max-width: 500px;
-}
-
 .padding{
   padding-left: 5px !important;
   padding-right: 5px !important;
+}
+
+.elementMaxWidth{
+  max-width: 500px;
 }
 
 .completed{
