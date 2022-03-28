@@ -7,9 +7,17 @@ import { Container } from 'react-bootstrap'
 
 const TaskTracker = () => {
   const[tasks, setTasks] = useState([])
+  const[id, setId] = useState(0)
 
   //add new task
   const addTask = (task) => {
+    const incrementId = () => {
+        setId(prevId => {
+        return prevId + 1
+        })
+    }
+    task.id = id
+    incrementId()
     setTasks(tasks => [...tasks, task])
   }
 

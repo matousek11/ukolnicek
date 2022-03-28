@@ -1,26 +1,16 @@
 import React from 'react'
 import { useState } from 'react';
-import { Button, Form, Row, Col } from 'react-bootstrap';
-import moment from 'moment'
-
-
+import { Button, Form } from 'react-bootstrap';
 
 const AddForm = ({onAddTask}) => {
     const[taskInput, setTaskInput] = useState('');
-    const[id, setId] = useState(0);
-    
-    const incrementId = () => {
-        setId(prevId => {
-        return prevId + 1
-        })
-    }
 
     //verifies user input
     const onSubmit = (e) => {
         //prevents to submit data to server
         e.preventDefault()
         //load actual time and date
-        let date = moment().format('DD.MM.YYYY HH:mm')
+        let date = moment()
 
         //error message
         if(!taskInput)
@@ -29,8 +19,7 @@ const AddForm = ({onAddTask}) => {
             return
         }
             
-        onAddTask({id: id, task: taskInput, date: date, completed: false})
-        incrementId()
+        onAddTask({task: taskInput, date: date, completed: false})
         //delete all inputs
         setTaskInput('')
     }

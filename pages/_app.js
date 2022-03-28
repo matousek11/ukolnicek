@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import moment from 'moment'
 
 function MyApp({ Component, pageProps }) {
   return <Component {...pageProps} />

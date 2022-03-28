@@ -8,7 +8,7 @@ const Task = ({task, onComplete, onDelete}) => {
         <hr className={`strikethrough ${task.completed ? 'strikethrough' : 'nostrikethrough'}`}/>
         <Col>
           <h4 className='mb-0 wrap'>{task.task}</h4>
-          <p className='mt-0 mb-2 text-muted'>{task.date}</p>
+          <p className='mt-0 mb-2 text-muted'>{task.date.format('DD.MM.YYYY HH:mm')}</p>
         </Col>
         <Col className='mt-3 mb-2 d-flex align-items-start justify-content-end'>
           <ButtonGroup className='me-2'>
