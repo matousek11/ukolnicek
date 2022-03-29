@@ -2,7 +2,9 @@ import React from 'react'
 import Task from './Task'
 
 const TaskList = ({tasks, onComplete, onDelete}) => {
-  return (
+  if(tasks)
+  {
+    return (
     <>
       {
         tasks.map((task) => (
@@ -10,6 +12,10 @@ const TaskList = ({tasks, onComplete, onDelete}) => {
         ))
       }
     </>
+    )
+  }
+  return (
+    <p className='mt-5 text-center text-muted'>There's no tasks, add some new tasks.</p>
   )
 }
 

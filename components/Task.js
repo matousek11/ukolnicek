@@ -3,7 +3,7 @@ import { Row, Col, Button, ButtonGroup } from 'react-bootstrap'
 
 const Task = ({task, onComplete, onDelete}) => {
   return (
-    <div className={`w-sm-75 border rounded shadow-sm mx-auto mt-2 padding ${task.completed ? 'completed' : ''} `} style={{maxWidth: "500px"}}>
+    <div className={`w-sm-75 border rounded shadow-sm mx-auto mt-2 padding elementMaxWidth ${task.completed ? 'completed' : ''} `}>
       <Row className={`position-relative`}>
         <hr className={`strikethrough ${task.completed ? 'strikethrough' : 'nostrikethrough'}`}/>
         <Col>
