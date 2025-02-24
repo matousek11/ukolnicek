@@ -1,4 +1,4 @@
-# Úkolníček
+# Tasks web app
 
 ## Table of contents
 * [About](#general-info)
